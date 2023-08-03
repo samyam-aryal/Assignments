@@ -8,7 +8,7 @@ Q.  Write a Python function square_numbers that takes a list of integers as
 
 def square_numbers(number_list):
     squared_list = list(map(lambda x : x**2, number_list))
-    print(f"\nFor the list containing numbers {number_list}, \nthe list containing squared numebrs is {squared_list}")
+    print(f"\nFor the list containing numbers {number_list}, \nthe list containing squared numbers is {squared_list}")
 
 square_numbers([1,3,4,7])
 
