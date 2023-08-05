@@ -4,10 +4,23 @@ Write a Python program that takes two integers as input and performs division
 when the second number is zero.
 '''
 
-# I tried two approaches for this. The first method was explicitly assigning a condition and raising an Exception if that condition
-# is met. A try ... except code block outside the function handles the exception and generates exception message.
+# I tried two approaches for this. The first method was explicitly
+# assigning a condition and raising an Exception if that condition
+# is met.
+# # A try ... except code block outside the function handles the exception and
+# generates exception message.
 
 def division_first(num1, num2):
+    """
+    Return the quotient when num1 is divided by num2
+
+    Args:
+    num1 (int) : Divisor
+    num2 (int) : Dividend  
+
+    Returns:
+    num1/ num2 (int) : Quotient of num1/num2
+    """
     if num2 == 0:
         raise ZeroDivisionError("Can't divide by 0.")
     return num1/num2
@@ -23,10 +36,20 @@ print("\n")
 # and use the code block outside the function to raise an appropriate exception message.
 
 def division_second(num1, num2):
+    """
+    Return the quotient when num1 is divided by num2
+
+    Args:
+    num1 (int) : Dividend
+    num2 (int) : Divisor
+
+    Returns:
+    num1/ num2 (int) : Quotient of num1/num2
+    """
     try:
         return num1/ num2
-    except ZeroDivisionError:
-        raise(ZeroDivisionError("Can't divide by zero"))
+    except ZeroDivisionError as exc:
+        raise ZeroDivisionError("Can't divide by zero") from exc
 
 try:
     print(division_second(10, 2), "Second division method, try 1")
