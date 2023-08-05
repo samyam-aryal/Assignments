@@ -1,0 +1,34 @@
+# I tried two approaches for this. The first method was explicitly assigning a condition and raising an Exception if that condition
+# is met. A try ... except code block outside the function handles the exception and generates exception message.
+
+def division_first(num1, num2):
+    if num2 == 0:
+        raise ZeroDivisionError("Can't divide by 0.")
+    return num1/num2
+
+try:
+    print(division_first(10, 2), "First division method, try 1")
+    print(division_first(5, 0), "First division method, try 2")
+except ZeroDivisionError as z:
+    print(z)
+
+print("\n")
+# The second approach is to use the base Exception class to automatically detect division by zero,
+# and use the code block outside the function to raise an appropriate exception message.
+
+def division_second(num1, num2):
+    try:
+        return num1/ num2
+    except ZeroDivisionError:
+        raise(ZeroDivisionError("Can't divide by zero"))
+
+try:
+    print(division_second(10, 2), "Second division method, try 1")
+    print(division_second(5, 0), "Second division method, try 2")
+except ZeroDivisionError as z:
+    print(z)
+
+# try:
+#     print(division_second(5, 0), "Second division method, try 2")
+# except ZeroDivisionError as z:
+#     print(z)
