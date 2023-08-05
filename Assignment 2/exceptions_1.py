@@ -1,3 +1,9 @@
+'''
+Write a Python program that takes two integers as input and performs division
+(num1 / num2). Handle the ZeroDivisionError and display a custom error message
+when the second number is zero.
+'''
+
 # I tried two approaches for this. The first method was explicitly assigning a condition and raising an Exception if that condition
 # is met. A try ... except code block outside the function handles the exception and generates exception message.
 
