@@ -10,6 +10,7 @@ when the second number is zero.
 # # A try ... except code block outside the function handles the exception and
 # generates exception message.
 
+
 def division_first(num1, num2):
     """
     Return the quotient when num1 is divided by num2
@@ -32,8 +33,10 @@ except ZeroDivisionError as z:
     print(z)
 
 print("\n")
-# The second approach is to use the base Exception class to automatically detect division by zero,
-# and use the code block outside the function to raise an appropriate exception message.
+# The second approach is to use the base Exception class to automatically
+# detect division by zero, and use the code block outside the function to 
+# raise an appropriate exception message.
+
 
 def division_second(num1, num2):
     """
@@ -44,12 +47,13 @@ def division_second(num1, num2):
     num2 (int) : Divisor
 
     Returns:
-    num1/ num2 (int) : Quotient of num1/num2
+    num1 / num2 (int) : Quotient of num1/num2
     """
     try:
         return num1/ num2
     except ZeroDivisionError as exc:
         raise ZeroDivisionError("Can't divide by zero") from exc
+
 
 try:
     print(division_second(10, 2), "Second division method, try 1")
