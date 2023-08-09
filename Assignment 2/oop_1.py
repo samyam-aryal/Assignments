@@ -7,19 +7,30 @@ department name, head of the department, and a list of courses offered. Implemen
 polymorphism by defining a common method for both the University and
 Department classes to display their details.
 '''
-
 class University:
+    """
+    Represents a University with attributes like name, location, and list of departments.
+    """
+
     def __init__(self, name, location):
         # Declaring variables as protected to protect its internal data
         self._name = name
         self._location = location
         self._departments = []
-    
+
     def get_details(self):
-        print(f"Details of the university are : \nName:{self._name}, \nLocation:{self._location}, \nList of Departments: {self._departments}")
-        
+        """
+        Display details of the university.
+        """
+        print(f"Details of the university are:\nName: {self._name},"
+        "\nLocation: {self._location},\nList of Departments: {self._departments}")
+
 
 class Department(University):
+    """
+    Represents a Department that inherits from the University class.
+    """
+
     def __init__(self, name, location, dept_name, dept_head, courses):
         super().__init__(name, location)
         self.dept_name = dept_name
@@ -27,10 +38,13 @@ class Department(University):
         self.courses = courses
 
     def get_details(self):
-        print(f"Details of the department are: \nName:{self.dept_name}, \nDepartment Head:{self.dept_head}, \nCourses offered: {self.courses}")
-        print("University Details are: ", self._name, self._location)
-# tribhuwan = University("TU", "Kirtipur", ["Computer", "Physics"])
-departments = Department("TU", "Kirtipur", "Computer", "Someone", ["CSIT", "CE"])
+        """
+        Display details of the department and university.
+        """
+        print(f"Details of the department are:\nName: {self.dept_name},"
+        "\nDepartment Head: {self.dept_head},\nCourses offered: {self.courses}")
+        print(f"University Details are:\nName: {self._name},\nLocation: {self._location}")
 
-# tribhuwan.get_details()
+
+departments = Department("TU", "Kirtipur", "Computer", "Someone", ["CSIT", "CE"])
 departments.get_details()
