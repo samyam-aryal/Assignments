@@ -2,62 +2,62 @@
 
 # SINGLE RESPONSIBILITY PRINCIPLE
 
-# class Book:
-#     def __init__(self, title, author, isbn, genre):
-#         self.title = title
-#         self.author = author
-#         self.isbn = isbn
-#         self.genre = genre
-#         self.availability = True
+class Book:
+    def __init__(self, title, author, isbn, genre):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+        self.genre = genre
+        self.availability = True
 
-# # Class LibraryCatalog inherits Book class   
-# class LibraryCatalog():
-#     def __init__(self):
-#         self.book_list = []
+# Class LibraryCatalog inherits Book class   
+class LibraryCatalog():
+    def __init__(self):
+        self.book_list = []
     
-#     def add_book(self, book: Book):
-#         self.book_list.append(book)
+    def add_book(self, book: Book):
+        self.book_list.append(book)
     
-#     def get_book_details(self, book: Book):
-#         print(f"\nISBN for {book.title} is ", book.isbn)
-#         return book
+    def get_book_details(self, book: Book):
+        print(f"\nISBN for {book.title} is ", book.isbn)
+        return book
     
-#     def get_book_list(self):
-#         print("\n\nBook titles are")
-#         for book in self.book_list:
-#             print(book.title)
-#         # return self.book_list
+    def get_book_list(self):
+        print("\n\nBook titles are")
+        for book in self.book_list:
+            print(book.title)
+        # return self.book_list
 
-# class BookBorrower():
-#     def __init__(self, library_catalog):
-#         self.library_catalog = library_catalog
+class BookBorrower():
+    def __init__(self, library_catalog):
+        self.library_catalog = library_catalog
 
-#     def borrow_book(self, book):
-#         if book.availability == True:
-#             book.availability = False
-#             print("Book borrowed", book.availability)
+    def borrow_book(self, book):
+        if book.availability == True:
+            book.availability = False
+            print("Book borrowed", book.availability)
 
-#     def return_book(self, book):
-#         book.availability = True
-#         print("Book returned", book.availability)
+    def return_book(self, book):
+        book.availability = True
+        print("Book returned", book.availability)
         
 
-# book1 = Book("To Kill a Mockingbird", "Harper Lee", "1", "Fiction")
-# book2 = Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", "2", "Fantasy")
-# book3 = Book("The Kite Runner", "Khaled Hosseini", "3", "Non-fiction")
+book1 = Book("To Kill a Mockingbird", "Harper Lee", "1", "Fiction")
+book2 = Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", "2", "Fantasy")
+book3 = Book("The Kite Runner", "Khaled Hosseini", "3", "Non-fiction")
 
-# library_catalog = LibraryCatalog()
-# library_catalog.add_book(book1)
-# library_catalog.add_book(book2)
-# library_catalog.add_book(book3)
-# library_catalog.get_book_details(book1)
-# library_catalog.get_book_details(book2)
-# library_catalog.get_book_details(book3)
-# library_catalog.get_book_list()
+library_catalog = LibraryCatalog()
+library_catalog.add_book(book1)
+library_catalog.add_book(book2)
+library_catalog.add_book(book3)
+library_catalog.get_book_details(book1)
+library_catalog.get_book_details(book2)
+library_catalog.get_book_details(book3)
+library_catalog.get_book_list()
 
-# borrow = BookBorrower(library_catalog)
-# borrow.borrow_book(book1)
-# borrow.return_book(book1)
+borrow = BookBorrower(library_catalog)
+borrow.borrow_book(book1)
+borrow.return_book(book1)
 
 
 #######################################################################################
@@ -68,33 +68,33 @@
 # open for extension, but closed for modification.”
 
 
-# from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod
 
-# class Product:
-#     def __init__(self, price):
-#         self.price = price
+class Product:
+    def __init__(self, price):
+        self.price = price
 
-# class Price(ABC):
-#     @abstractmethod
-#     def calculate_total_price(self, products: list):
-#         pass
+class Price(ABC):
+    @abstractmethod
+    def calculate_total_price(self, products: list):
+        pass
 
-# class Total_Price(Price):
-#     def calculate_total_price(self, products: list):
-#         total_price = 0
-#         for product in products:
-#             total_price += product.price
-#         # print("Total price is ", total_price)
-#         return total_price
+class Total_Price(Price):
+    def calculate_total_price(self, products: list):
+        total_price = 0
+        for product in products:
+            total_price += product.price
+        # print("Total price is ", total_price)
+        return total_price
 
-# class Discounted_Price(Price):
-#     def calculate_total_price(self, products: list):
-#         total_price = 0
-#         for product in products:
-#             total_price += product.price
-#         total_price = total_price * (1-20/100)
-#         # print("\n\n Discounted price is ", total_price)
-#         return total_price
+class Discounted_Price(Price):
+    def calculate_total_price(self, products: list):
+        total_price = 0
+        for product in products:
+            total_price += product.price
+        total_price = total_price * (1-20/100)
+        # print("\n\n Discounted price is ", total_price)
+        return total_price
 
 #######################################################################################
 
@@ -156,7 +156,9 @@ checking_account.withdraw(500)
 #######################################################################################
 
 # Interface Segregation Principle
-# ISP 
+# ISP states that "a class should not be forced to implement interfaces it does not use".
+#  a client should not be required to implement methods they don't need from an interface.
+# So, it promotes a more focused and specific design. 
 
 from abc import ABC, abstractmethod
 
@@ -198,6 +200,8 @@ if __name__ == "__main__":
 
 # “Abstractions should not depend upon details. Details
 # should depend upon abstractions.”
+#  In other words, high-level modules should not depend on low-level modules but both should depend on abstractions
+# This idea promotes decoupling of components to improve flexibility.
 
 from abc import ABC, abstractmethod
 
